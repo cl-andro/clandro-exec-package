@@ -1,0 +1,3 @@
+#!@CLANDRO__PREFIX@/bin/sh
+
+echo "$@"

@@ -1,0 +1,14 @@
+Format: https://www.debian.org/doc/packaging-manuals/copyright-format/1.0/
+
+
+
+Files:
+ *
+Comment:
+ The `clandro-exec-package` repository is released under the `Apache-2.0` license, unless specified
+ differently in a file/directory or in any additional `Files` sections below.
+License: [Apache-2.0](licenses/clandro__clandro-exec-package__Aache-2.0.md)
+
+Files:
+ site/*
+License: [MIT](licenses/clandro__clandro-exec-package__MIT.md)

@@ -1,0 +1,43 @@
+#!@CLANDRO__PREFIX@/bin/bash
+# shellcheck shell=bash
+
+##
+# `libclandro_exec__nos__c__runtime_script_tests__main`
+##
+libclandro_exec__nos__c__runtime_script_tests__main() {
+
+    CLANDRO_EXEC__TESTS__LOG_TAG="lib@CLANDRO__LNAME@-exec_c.rs-tests"
+
+    clandro_exec__tests__log 4 "main()"
+
+
+    # Run tests.
+    libclandro_exec__nos__c__runtime_script_tests__run_tests || return $?
+
+    return 0
+}
+
+##
+# `libclandro_exec__nos__c__runtime_script_tests__run_tests`
+##
+libclandro_exec__nos__c__runtime_script_tests__run_tests() {
+
+    clandro_exec__tests__log 2 "runTests(start)"
+
+    CLANDRO_EXEC__TESTS__TESTS_COUNT="0"
+    CLANDRO_EXEC__TESTS__LOG_EMPTY_LINE_AFTER_SCRIPT_TEST="true"
+
+
+
+    (
+        # shellcheck source=lib/clandro-exec_nos_c/tre/tests/scripts/clandro/api/clandro_exec/service/ld_preload/direct/exec/exec-intercept_runtime-script-tests.in
+        clandro_exec__tests__source_file_from_path \
+            "$CLANDRO_EXEC__TESTS__TESTS_PATH/lib/clandro-exec_nos_c/tre/scripts/clandro/api/clandro_exec/service/ld_preload/direct/exec/exec-intercept_runtime-script-tests" || exit $?
+        ExecIntercept_runTests || exit $?
+    ) || return $?
+
+
+
+    clandro_exec__tests__log 2 "runTests(end): $CLANDRO_EXEC__TESTS__TESTS_COUNT tests completed"
+
+}
